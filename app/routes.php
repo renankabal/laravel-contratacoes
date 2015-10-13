@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function()
+// Validação CSRF
+Route::when('*', 'csrf', array('post'));
+
+Route::get('/', 'LoginController@getEntrar');
+Route::post('/entrar', 'LoginController@postEntrar');
+Route::get('sair', 'LoginController@getSair');
+
+// Verifica se o usuário está logado
+Route::group(array('before' => 'auth'), function()
 {
-	return View::make('hello');
+    // Rota da home de administracao do sistema
+	Route::get('/home', 'HomeController@home');
+
 });
