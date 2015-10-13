@@ -29,6 +29,7 @@ Route::group(array('before' => 'auth'), function()
 
 	    Route::resource('/pessoas', 'PessoasController');
 	    Route::resource('/contratos', 'ContratosController');
+	    Route::resource('/lotacoes', 'LotacoesController');
 
 	    // Cria contrato
 	    Route::get('/contratos/{pessoa_id}/create', 'ContratosController@createContrato');

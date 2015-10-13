@@ -27,10 +27,10 @@
                 {{ $errors->first('pessoa_id', '<span class="help-block">:message</span>') }}
             </div>
 
-            <div class="form-group {{ $errors->has('contrato') ? 'has-error' : '' }}">
-                <label>Contrato</label>
-                <input type="text" class="form-control" name="contrato">
-                {{ $errors->first('contrato', '<span class="help-block">:message</span>') }}
+            <div class="form-group {{ $errors->has('cadastro') ? 'has-error' : '' }}">
+                <label>Cadastro</label>
+                <input type="text" class="form-control" name="cadastro">
+                {{ $errors->first('cadastro', '<span class="help-block">:message</span>') }}
             </div>
             
             <div class="form-group {{ $errors->has('data_admissao') ? 'has-error' : '' }}">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-group {{ $errors->has('contratacao_tipo_id') ? 'has-error' : '' }}">
-                <label for="contratacao_tipo_id">Tipo de contratacao</label>
+                <label for="contratacao_tipo_id">Tipo de vinculo</label>
                 <select class="form-control" id="contratacao_tipo_id" name="contratacao_tipo_id">
                     <option value="">Selecione</option>
                     @foreach ($tiposContratos as $tipoContrato)
@@ -78,15 +78,14 @@
                 {{ $errors->first('ativo', '<span class="help-block">:message</span>') }}
             </div>
 
-            <div class="form-group {{ $errors->has('cadastro') ? 'has-error' : '' }}">
-                <label>Cadastro</label>
-                <input type="text" class="form-control" id="data" name="cadastro">
-                {{ $errors->first('cadastro', '<span class="help-block">:message</span>') }}
-            </div>
-
             <div class="form-group {{ $errors->has('carga_horaria') ? 'has-error' : '' }}">
                 <label>Carga Horária</label>
-                <input type="text" class="form-control" id="data" name="carga_horaria">
+                <select class="form-control" name="carga_horaria">
+                    <option value="">Selecione</option>
+                    <option value="20">20h</option>
+                    <option value="40">40h</option>
+                    <option value="80">80h</option>
+                </select>
                 {{ $errors->first('carga_horaria', '<span class="help-block">:message</span>') }}
             </div>
 
