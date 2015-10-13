@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="main-box mb-red">
+        <div class="main-box mb-verde-claro">
             <a href="{{action('ContratosController@index')}}">
                 <i class="fa fa-user fa-5x"></i>
                 <h5>{{{ $contratos }}} Contrato(s)</h5>

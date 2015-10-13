@@ -50,6 +50,17 @@
                 {{ $errors->first('contratacao_tipo_id', '<span class="help-block">:message</span>') }}
             </div>
 
+            <div class="form-group {{ $errors->has('contratacao_classe_id') ? 'has-error' : '' }}">
+                <label>Classe</label>
+                <select class="form-control" name="contratacao_classe_id">
+                    <option value="">Selecione</option>
+                    @foreach ($tiposClasses as $tipoClasse)
+                    <option value="{{ $tipoClasse->id }}" {{ Request::old('contratacao_classe_id') == $tipoClasse->id ? 'selected' : '' }}>{{ $tipoClasse->nome }}</option>
+                    @endforeach
+                </select>
+                {{ $errors->first('contratacao_classe_id', '<span class="help-block">:message</span>') }}
+            </div>
+            
             <div class="form-group {{ $errors->has('salario_base') ? 'has-error' : '' }}">
                 <label>Salario Base</label>
                 <input type="text" class="form-control" id="data" name="salario_base">

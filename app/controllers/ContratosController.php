@@ -68,7 +68,8 @@ class ContratosController extends BaseController {
 	{
 		$pessoas = Pessoa::find($id);
 		$tiposContratos = ContratacaoTipo::all();
-		return View::make('contratos.create', compact('pessoas', 'tiposContratos'));
+		$tiposClasses = ContratacaoClasse::all();
+		return View::make('contratos.create', compact('pessoas', 'tiposContratos', 'tiposClasses'));
 	}
 
 	/**
