@@ -30,7 +30,10 @@
                 <a class="active-menu" href="{{action('HomeController@home')}}"><i class="fa fa-home"></i>Inicio</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-commenting-o"></i>Contratos</a>
+                <a href="{{action('PessoasController@index')}}"><i class="fa fa-users"></i>Pessoas</a>
+            </li>
+            <li>
+                <a href="{{action('ContratosController@index')}}"><i class="fa fa-commenting-o"></i>Contratos</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-commenting-o"></i>Lotacao</a>

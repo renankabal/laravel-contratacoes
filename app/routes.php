@@ -23,5 +23,17 @@ Route::group(array('before' => 'auth'), function()
 {
     // Rota da home de administracao do sistema
 	Route::get('/home', 'HomeController@home');
+	
+    // Rota da home de administracao do sistema
+	Route::group(array('prefix' => 'home'), function () {
+
+	    Route::resource('/pessoas', 'PessoasController');
+	    Route::resource('/contratos', 'ContratosController');
+
+	    // Cria contrato
+	    Route::get('/contratos/{pessoa_id}/create', 'ContratosController@createContrato');
+	    Route::post('/contratos/{pessoa_id}/create', 'ContratosController@storeContrato');    
+
+	});
 
 });
