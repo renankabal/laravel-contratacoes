@@ -36,14 +36,22 @@
 			<table class="table table-hover">
 				<thead>
 					<th width="40%">Nome</th>
-					<th width="30%">Ativo</th>
+					<th width="15%">Cpf</th>
+					<th width="15%">Status</th>
 					<th width="17%">Ações</th>
 				</thead>
 				<tbody>
 				@forelse ($contratos as $contrato)
 					<tr>
-						<td>{{ $contrato->pessoa_id }}</td>
-						<td>{{ $contrato->ativo }}</td>
+						<td>{{ $contrato->nome }}</td>
+						<td>{{ $contrato->cpf }}</td>
+						<td>
+							@if ($contrato->ativo == 'S')
+								<span class="label label-primary">Ativo</span>
+							@else
+								<span class="label label-warning">Inativo</span>
+							@endif
+						</td>
 						<td>
 							<div class="btn-group btn-group-sm" role="group">
 								<a href="{{ action('ContratosController@edit', $contrato->id) }}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>

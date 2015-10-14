@@ -17,17 +17,16 @@ class Contrato extends Eloquent {
 	
 
 	protected $fillable = [
-		'pessoas_id',
-		'contrato',
-		'data_admissao',
-		'contratacao_tipo_id',
-		'salario_base',
-		'hora_aula_contratada',
-		'valor_hora_aula',
-		'ativo',
+		'pessoa_id',
 		'cadastro',
+		'data_admissao',
+		'ano_admissao',
+		'contratacao_cargo_id',
+		'contratacao_tipo_id',
 		'carga_horaria',
-		'contratacao_classe',
+		'contratacao_classe_id',
+		'contratacao_disciplina_id',
+		'ativo',
 		'usuario_id'
 		];
 
@@ -37,16 +36,16 @@ class Contrato extends Eloquent {
 	 *
 	*/
 	public static $rules = [
-		'pessoas_id' => 'required',
-		'contrato' => 'required',
-		'data_admissao' => 'required',
-		'contratacao_tipo_id' => 'required',
-		'salario_base' => 'required',
-		'hora_aula_contratada' => 'required',
-		'valor_hora_aula' => 'required',
+		'pessoa_id' => 'required',
 		'cadastro' => 'required',
+		'data_admissao' => 'required',
+		'ano_admissao' => 'required',
+		'contratacao_cargo_id' => 'required',
+		'contratacao_tipo_id' => 'required',
 		'carga_horaria' => 'required',
-		'contratacao_classe' => 'required',
+		'contratacao_classe_id' => 'required',
+		'contratacao_disciplina_id' => 'required',
+		'ativo' => 'required',
 		'usuario_id' => 'required'
 	];
 

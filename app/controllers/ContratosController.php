@@ -9,7 +9,9 @@ class ContratosController extends BaseController {
 	 */
 	public function index()
 	{
-		$contratos = Contrato::orderBy('data_admissao')
+		$contratos = Contrato::select('pessoas.nome', 'pessoas.cpf', 'ativo', 'contratos.id')
+							->leftJoin('pessoas', 'pessoas.id', '=', 'contratos.pessoa_id')
+							->orderBy('data_admissao')
 							->paginate(10);
 		return View::make('contratos.index', compact('contratos'));
 	}
@@ -22,7 +24,12 @@ class ContratosController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		$pessoas = Pessoa::all();
+		$tiposContratos = ContratacaoTipo::all();
+		$tiposClasses = ContratacaoClasse::all();
+		$tiposCargos = ContratacaoCargo::all();
+		$tiposDisciplinas = ContratacaoDisciplina::all();
+		return View::make('contratos.create', compact('pessoas', 'tiposContratos', 'tiposClasses', 'tiposCargos', 'tiposDisciplinas'));
 	}
 
 	/**
@@ -32,7 +39,14 @@ class ContratosController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+
+		$contrato = new Contrato($input);
+
+		$contrato->usuario_id = Auth::user()->id;
+		$contrato->save();
+
+	    return Redirect::action('ContratosController@index')->with('mensagem', 'Contrato cadastrado com sucesso.');
 	}
 
 
@@ -71,7 +85,7 @@ class ContratosController extends BaseController {
 		$tiposClasses = ContratacaoClasse::all();
 		$tiposCargos = ContratacaoCargo::all();
 		$tiposDisciplinas = ContratacaoDisciplina::all();
-		return View::make('contratos.create', compact('pessoas', 'tiposContratos', 'tiposClasses', 'tiposCargos', 'tiposDisciplinas'));
+		return View::make('contratos.createContrato', compact('pessoas', 'tiposContratos', 'tiposClasses', 'tiposCargos', 'tiposDisciplinas'));
 	}
 
 	/**
@@ -81,7 +95,22 @@ class ContratosController extends BaseController {
 	 */
 	public function storeContrato()
 	{
-		// 
+		$id = Input::get('pessoa_id');
+
+		$input = Input::all();
+
+		$validator = Validator::make($input, Contrato::$rules);
+
+		// if ($validator->fails())
+		// {
+		// 	return Redirect::action('ContratosController@createContrato', $id)->withErrors($validator)->withInput();
+		// }
+
+		$contrato = new Contrato(array_filter($input));
+		$contrato->usuario_id = Auth::user()->id;
+		$contrato->save();
+
+	    return Redirect::action('ContratosController@index')->with('mensagem', 'Contrado cadastrado com sucesso.');
 	}
 	/**
 	 * Update the specified resource in storage.

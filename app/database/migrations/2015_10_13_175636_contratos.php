@@ -50,8 +50,8 @@ class Contratos extends Migration {
 		Schema::create('contratos', function($table)
         {
             $table->increments('id');
-            $table->integer('pessoas_id')->unsigned();
-			$table->foreign('pessoas_id')->references('id')->on('pessoas');
+            $table->integer('pessoa_id')->unsigned();
+			$table->foreign('pessoa_id')->references('id')->on('pessoas');
             $table->string('cadastro', 150);
             $table->date('data_admissao');
             $table->integer('ano_admissao');

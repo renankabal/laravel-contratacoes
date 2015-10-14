@@ -12,20 +12,16 @@
   <h2><i class="glyphicon glyphicon-user"></i> Contratos<small> Novo</small></h2>
 </div>
 
-<form method="post" action="{{ action('ContratosController@store') }}">
+<form method="post" action="{{ action('ContratosController@storeContrato') }}">
     <div class="row">
 
         <div class="col-md-12">
 
             <div class="form-group {{ $errors->has('pessoa_id') ? 'has-error' : '' }}">
                 <label>Pessoa</label>
-                <select class="select2 form-control" id="pessoa_id" name="pessoa_id" value="{{ Request::old('pessoa_id') }}">
-                <option value="">Selecione</option>
-                @foreach($pessoas as $pessoa)
-                    <option value="{{ $pessoa->id }}">{{ $pessoa->nome }}</option>
-                @endforeach
-            </select>
-            {{ $errors->first('pessoa_id', '<span class="help-block">:message</span>') }}
+                    <input type="text" class="form-control" value="{{ $pessoas->nome }}" disabled="disabled">
+                    <input type="hidden" name="pessoa_id" value="{{ $pessoas->id }}">
+                    {{ $errors->first('pessoa_id', '<span class="help-block">:message</span>') }}
             </div>
 
             <div class="form-group {{ $errors->has('cadastro') ? 'has-error' : '' }}">

@@ -51,6 +51,7 @@ class ContratacaoTableSeeder extends Seeder {
         ContratacaoDisciplina::create(array('nome' => 'Geografia'));
         ContratacaoDisciplina::create(array('nome' => 'Filosofia'));
         ContratacaoDisciplina::create(array('nome' => 'Informática/Computação'));
-	}
+        ContratacaoDisciplina::create(array('nome' => 'Professor de 1ª a 4ª série'));
+    }
 
 }
