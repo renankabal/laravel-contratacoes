@@ -70,7 +70,12 @@ class ContratosController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$contrato = Contrato::find($id);
+		$tiposContratos = ContratacaoTipo::all();
+		$tiposClasses = ContratacaoClasse::all();
+		$tiposCargos = ContratacaoCargo::all();
+		$tiposDisciplinas = ContratacaoDisciplina::all();
+		return View::make('contratos.edit', compact('tiposContratos', 'tiposClasses', 'tiposCargos', 'tiposDisciplinas', 'contrato'));
 	}
 
 	/**
@@ -120,7 +125,21 @@ class ContratosController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$contrato = Contrato::find($id);
+
+		$input = Input::all();
+
+		$validator = Validator::make($input, Contrato::$rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::action('ContratosController@edit', $id)->withErrors($validator)->withInput();
+		}
+
+
+		$contrato->update(array_filter($input));
+
+	    return Redirect::action('ContratosController@index')->with('mensagem', 'Contrato atualizado com sucesso.');
 	}
 
 

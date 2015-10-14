@@ -49,4 +49,18 @@ class Contrato extends Eloquent {
 		'usuario_id' => 'required'
 	];
 
+	/*
+	 *
+	 * relacionamento do Eloquent ORM
+	 * 
+	*/
+	public function pessoa()
+	{
+		return $this->belongsTo('Pessoa');
+	}
+
+	public function contratacaoCargo()
+	{
+		return $this->belongsTo('ContratacaoCargo');
+	}
 }
