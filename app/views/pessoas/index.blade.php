@@ -6,7 +6,7 @@
 		<div class="col-md-12">
 			<ol class="breadcrumb">
 				<li><a href="{{action('HomeController@home')}}">Principal</a></li>
-				<li class="active">Pessoas</li>
+				<li class="active">Funcionarios</li>
 			</ol>
 		</div>
 	</div>
@@ -27,7 +27,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<a id="botao-novo" href="{{ action('PessoasController@create') }}" class="btn btn-success pull-right"><i class="glyphicon glyphicon-plus"></i> Novo</a>
-			<h2><i class="fa fa-commenting-o"></i> Pessoas</h2>
+			<h2><i class="fa fa-commenting-o"></i> Funcionarios</h2>
 		</div>
 	</div>
 

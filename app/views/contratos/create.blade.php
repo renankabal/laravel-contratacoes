@@ -91,7 +91,7 @@
             </div>
 
             <div class="form-group {{ $errors->has('contratacao_disciplina_id') ? 'has-error' : '' }}">
-                <label for="contratacao_disciplina_id">Disciplina</label>
+                <label for="contratacao_disciplina_id">Disciplina do concurso</label>
                 <select class="form-control" id="contratacao_disciplina_id" name="contratacao_disciplina_id">
                     <option value="">Selecione</option>
                     @foreach ($tiposDisciplinas as $tipoDisciplina)

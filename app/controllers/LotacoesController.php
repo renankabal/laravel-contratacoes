@@ -12,6 +12,16 @@ class LotacoesController extends BaseController {
 		//
 	}
 
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function indexLotacao($id)
+	{
+		$lotacoes  = Lotacao::all();
+		return View::make('lotacoes.indexLotacao', compact('lotacoes'));
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -20,7 +30,7 @@ class LotacoesController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('lotacoes.create');
 	}
 
 

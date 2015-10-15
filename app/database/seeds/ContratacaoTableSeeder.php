@@ -34,7 +34,7 @@ class ContratacaoTableSeeder extends Seeder {
         ContratacaoCargo::create(array('nome' => 'PEDAGOGO'));
         ContratacaoCargo::create(array('nome' => 'ESPECIALISTA EM EDUCACAO'));
 
-         #Apaga e povoa a tabela de contratacoes_disciplinas
+        #Apaga e povoa a tabela de contratacoes_disciplinas
         DB::table('contratacoes_disciplinas')->delete();
         ContratacaoDisciplina::create(array('nome' => 'Química'));
         ContratacaoDisciplina::create(array('nome' => 'Física'));
@@ -52,6 +52,22 @@ class ContratacaoTableSeeder extends Seeder {
         ContratacaoDisciplina::create(array('nome' => 'Filosofia'));
         ContratacaoDisciplina::create(array('nome' => 'Informática/Computação'));
         ContratacaoDisciplina::create(array('nome' => 'Professor de 1ª a 4ª série'));
+
+        #Apaga e povoa a tabela de contratos
+        DB::table('contratos')->delete();
+        Contrato::create(array(
+            'pessoa_id' => 1,
+            'cadastro'  => '21313/2015',
+            'data_admissao' => '2014-01-24',
+            'ano_admissao' => 2014,
+            'contratacao_cargo_id' => 1,
+            'contratacao_tipo_id' => 1,
+            'carga_horaria' => 40,
+            'contratacao_classe_id' => 1,
+            'contratacao_disciplina_id' => 1,
+            'ativo' => 'S',
+            'usuario_id' => 1
+        ));
     }
 
 }

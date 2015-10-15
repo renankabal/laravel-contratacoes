@@ -35,6 +35,9 @@ Route::group(array('before' => 'auth'), function()
 	    Route::get('/contratos/{pessoa_id}/create', 'ContratosController@createContrato');
 	    Route::post('/contratos/{pessoa_id}/create', 'ContratosController@storeContrato');    
 
+	    //Ver lotacoes da pessoa
+	    Route::get('/lotacoes/{contrato_id}/index', 'LotacoesController@indexLotacao');
+	    
 	});
 
 });

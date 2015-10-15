@@ -17,8 +17,17 @@ class Lotacao extends Eloquent {
 	
 
 	protected $fillable = [
-		'nome'
-		];
+		'contrato_id',
+		'lotacao_carga_horaria',
+		'data_inicio',
+		'documento_inicio',
+		'data_fim',
+		'documento_fim',
+		'lotacao_situacao_id',
+		'lotacao_ambiente_id',
+		'unidade_id',
+		'usuario_id'
+	];
 
 	/*
 	 *
@@ -26,7 +35,16 @@ class Lotacao extends Eloquent {
 	 *
 	*/
 	public static $rules = [
-		'nome'		=>	'required'
+		'contrato_id' => 'required',
+		'lotacao_carga_horaria' => 'required',
+		'data_inicio' => 'required',
+		'documento_inicio' => 'required',
+		'data_fim' => 'required',
+		'documento_fim' => 'required',
+		'lotacao_situacao_id' => 'required',
+		'lotacao_ambiente_id' => 'required',
+		'unidade_id' => 'required',
+		'usuario_id' => 'required'
 	];
 
 }

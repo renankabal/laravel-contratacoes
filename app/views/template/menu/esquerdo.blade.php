@@ -30,14 +30,24 @@
                 <a class="active-menu" href="{{action('HomeController@home')}}"><i class="fa fa-home"></i>Inicio</a>
             </li>
             <li>
-                <a href="{{action('PessoasController@index')}}"><i class="fa fa-users"></i>Pessoas</a>
-            </li>
-            <li>
-                <a href="{{action('ContratosController@index')}}"><i class="fa fa-commenting-o"></i>Contratos</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-commenting-o"></i>Lotacao</a>
-            </li>
+                <a href="#"><i class="fa fa-users"></i>Recursos Humanos <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{action('PessoasController@index')}}"><i class="fa fa-bell"></i>Funcionarios</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li>
+                    <a href="{{action('ContratosController@index')}}"><i class="fa fa-commenting-o"></i>Contratos</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li>
+                    <a href="{{action('LotacoesController@index')}}"><i class="fa fa-commenting-o"></i>Lotacao</a>
+                    </li>
+                </ul>
+            </li>           
+            
             <li>
                 <a href="{{ url('sair') }}"><i class="fa fa-sign-out"></i>Sair</a>
             </li>
